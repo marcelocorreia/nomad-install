@@ -2,8 +2,8 @@
 
 galaxy_info:
   author: Marcelo Correia
-  company: BulletProof
-  description: "Sets up Retail Connect Local Environment"
+  company: Starvisitor
+  description: "Install Hashicorp's Nomad"
   min_ansible_version: 1.4
   license: MIT
   platforms:
