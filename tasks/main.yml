@@ -1,0 +1,7 @@
+---
+- name: Downloads installable
+  get_url: >
+    url="{{ install.download_location}}/nomad_{{ nomad.version}}_linux_{{ nomad.arch}}"
+    dest="{{ install.dir }}"
+    mode=0755
+  sudo: yes

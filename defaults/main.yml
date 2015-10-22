@@ -1,0 +1,8 @@
+---
+nomad:
+  version: 0.1.2
+  arch: amd64
+
+install:
+  dir : /usr/local/bin
+  download_location: https://dl.bintray.com/mitchellh/nomad
