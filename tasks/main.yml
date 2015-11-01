@@ -2,19 +2,18 @@
 - name: Downloads Hashicorp's Nomad
   get_url: >
     url="{{ install.download_location}}/nomad_{{ nomad.version}}_linux_{{ nomad.arch}}.zip"
-    dest="/tmp/"
+    dest="/tmp/nomad_{{ nomad.version}}_linux_{{ nomad.arch}}.zip"
     mode=0755
-  sudo: yes
+  sudo: no
   tags:
     - hashicorp
     - nomad
+    - install
 
-- name: Downloads Hashicorp's Nomad
-  unarchive: >
-    src="/tmp/nomad_{{ nomad.version}}_linux_{{ nomad.arch}}.zip"
-    dest="{{ install.dir }}"
-    mode=0755
+- name: Installs Hashicorp's Nomad
+  shell: unzip -u -d {{ install.dir }} /tmp/nomad_{{ nomad.version}}_linux_{{ nomad.arch}}.zip ; chmod 775 {{ install.dir }}/nomad ; chown root:staff {{ install.dir }}/nomad
   sudo: yes
   tags:
     - hashicorp
     - nomad
+    - install
