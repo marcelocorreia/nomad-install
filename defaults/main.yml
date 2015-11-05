@@ -2,8 +2,6 @@
 app:
   name: nomad
   version: 0.1.2
-  arch: linux_amd64
-  file_group: vagrant
 
 install:
   dir : /usr/local/bin
