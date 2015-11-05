@@ -4,6 +4,7 @@
     url="{{ install.download_location}}/{{ app.name }}_{{ app.version }}_{{ app.arch }}.zip"
     dest="/tmp/{{ app.name }}_{{ app.version }}_{{ app.arch }}.zip"
     mode=0755
+    force={{ install.force_download | default(false)}}
   sudo: no
   tags:
     - hashicorp
@@ -16,7 +17,7 @@
     src=/tmp/{{ app.name }}_{{ app.version }}_{{ app.arch }}.zip
     dest={{ install.dir }}
     copy=no
-    mode=750
+    mode=755
   sudo: yes
   tags:
     - hashicorp
@@ -28,7 +29,7 @@
   file: path={{ install.dir }}/{{ item }}
     owner={{ app.file_owner | default('root') }}
     group={{ app.file_group | default('root') }}
-    mode=750
+    mode=755
   sudo: yes
   with_items:
     - "{{ install.file_list }}"
