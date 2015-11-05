@@ -8,13 +8,18 @@ Installs [Hasicorp's Nomad] (https://nomadproject.io)
 ```yml
 
 ---
-nomad:
+app:
+  name: nomad
   version: 0.1.2
-  arch: amd64
+  arch: linux_amd64
+  file_owner: vagrant
+  file_group: vagrant
 
 install:
   dir : /usr/local/bin
   download_location: https://dl.bintray.com/mitchellh/nomad
+  file_list:
+    - nomad
 
 ```
 
@@ -23,13 +28,13 @@ Example Playbook
 ----------------
 ```yml
 
----
+
 - hosts: local
   sudo: true
   gather_facts: true
 
   roles:
-    - marcelocorreia.nomad-install
+    - { role: marcelocorreia.nomad-install }
 
   vars_files:
     - ../vars/tardis.yml
