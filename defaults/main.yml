@@ -3,7 +3,7 @@ nomad_app:
   name: nomad
   version: 0.1.2
 
-install:
+nomad_install:
   dir : /usr/local/bin
   download_location: https://dl.bintray.com/mitchellh/nomad
   file_list:

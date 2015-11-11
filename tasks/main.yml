@@ -9,10 +9,10 @@
 
 - name: Downloads Package
   get_url: >
-    url="{{ install.download_location}}/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
+    url="{{ nomad_install.download_location}}/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
     dest="/tmp/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
     mode=0755
-    force={{ install.force_download | default(false)}}
+    force={{ nomad_install.force_download | default(false)}}
   sudo: no
   tags:
     - hashicorp
@@ -23,7 +23,7 @@
 - name: Unpacks to location
   unarchive: >
     src=/tmp/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip
-    dest={{ install.dir }}
+    dest={{ nomad_install.dir }}
     copy=no
     mode=755
   sudo: yes
@@ -34,13 +34,13 @@
     - unarchive
 
 - name: Fix permissions on files (Workaround while waiting for 2.0)
-  file: path={{ install.dir }}/{{ item }}
+  file: path={{ nomad_install.dir }}/{{ item }}
     owner={{ file_owner | default('root') }}
     group={{ file_group | default('staff') }}
     mode=755
   sudo: yes
   with_items:
-    - "{{ install.file_list }}"
+    - "{{ nomad_install.file_list }}"
   tags:
     - hashicorp
     - nomad
