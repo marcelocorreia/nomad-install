@@ -9,8 +9,8 @@
 
 - name: Downloads Package
   get_url: >
-    url="{{ install.download_location}}/{{ app.name }}_{{ app.version }}_{{ arch }}.zip"
-    dest="/tmp/{{ app.name }}_{{ app.version }}_{{ arch }}.zip"
+    url="{{ install.download_location}}/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
+    dest="/tmp/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
     mode=0755
     force={{ install.force_download | default(false)}}
   sudo: no
@@ -22,7 +22,7 @@
 
 - name: Unpacks to location
   unarchive: >
-    src=/tmp/{{ app.name }}_{{ app.version }}_{{ arch }}.zip
+    src=/tmp/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip
     dest={{ install.dir }}
     copy=no
     mode=755
