@@ -8,7 +8,7 @@ Installs [Hasicorp's Nomad] (https://nomadproject.io)
 ```yml
 
 ---
-app:
+nomad_app:
   name: nomad
   version: 0.1.2
   arch: linux_amd64
