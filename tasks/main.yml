@@ -13,6 +13,7 @@
     dest="/tmp/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
     mode=0755
     force={{ nomad_install.force_download | default(false)}}
+    validate_certs=no
   sudo: no
   tags:
     - hashicorp
