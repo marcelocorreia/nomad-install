@@ -5,6 +5,6 @@ nomad_app:
 
 nomad_install:
   dir : /usr/local/bin
-  download_location: https://dl.bintray.com/mitchellh/nomad
+  download_location: https://releases.hashicorp.com/nomad/
   file_list:
     - nomad
