@@ -9,7 +9,7 @@
 
 - name: Downloads Package
   get_url: >
-    url="{{ nomad_install.download_location}}/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
+    url="{{ nomad_install.download_location}}/nomad_app.version/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
     dest="/tmp/{{ nomad_app.name }}_{{ nomad_app.version }}_{{ arch }}.zip"
     mode=0755
     force={{ nomad_install.force_download | default(false)}}
