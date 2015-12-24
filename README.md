@@ -10,16 +10,14 @@ Installs [Hasicorp's Nomad] (https://nomadproject.io)
 ---
 nomad_app:
   name: nomad
-  version: 0.2.2
-  arch: linux_amd64
-  file_owner: vagrant
-  file_group: vagrant
+  version: 0.2.3
 
-install:
+nomad_install:
   dir : /usr/local/bin
   download_location: https://releases.hashicorp.com/nomad
   file_list:
     - nomad
+
 
 ```
 
